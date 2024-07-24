@@ -4,10 +4,6 @@ import { NotFoundError,ValidationError } from '../errors/customErrors.js';
 
 
 const carController = {
-  getCarInfo: (req, res) => {
-    res.render("car", {name: "test"});
-  },
-
   addCar: async(req, res) => {
     const { make, model, color, number, year } = req.body;
   
@@ -22,6 +18,9 @@ const carController = {
         res.status(500).json({ message: 'Server error' });
       }
     }
+  },
+  newCar: (req, res) => {
+    res.render("new_car", {name: "new_car"});
   },
 
   getCarById: async(req, res) => {
